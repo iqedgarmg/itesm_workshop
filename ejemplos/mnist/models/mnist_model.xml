@@ -1,0 +1,1308 @@
+<?xml version="1.0" ?>
+<net name="mnist_model" version="10">
+	<layers>
+		<layer id="0" name="StatefulPartitionedCall/model_3/conv2d_7/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="0" size="832" shape="13,32,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_7/Conv2D/ReadVariableOp:0">
+					<dim>13</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="StatefulPartitionedCall/model_3/conv2d_6/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="832" size="18432" shape="32,32,3,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_6/Conv2D/ReadVariableOp:0">
+					<dim>32</dim>
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="2" name="StatefulPartitionedCall/model_3/conv2d_5/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="19264" size="55296" shape="32,96,3,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_5/Conv2D/ReadVariableOp:0">
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="3" name="StatefulPartitionedCall/model_3/conv2d_2/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="74560" size="18432" shape="32,32,3,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_2/Conv2D/ReadVariableOp:0">
+					<dim>32</dim>
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="StatefulPartitionedCall/model_3/conv2d_1/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="92992" size="1728" shape="32,3,3,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_1/Conv2D/ReadVariableOp:0">
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="input_1" type="Parameter" version="opset1">
+			<data shape="1,100,100,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="input_1">
+					<dim>1</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="6" name="52" type="Const" version="opset1">
+			<data offset="94720" size="32" shape="4" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="7" name="StatefulPartitionedCall/model_3/conv2d_1/BiasAdd__6" type="Transpose" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+					<dim>3</dim>
+				</port>
+				<port id="1">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_1/BiasAdd__6:0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="8" name="StatefulPartitionedCall/model_3/conv2d_1/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>3</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="9" name="StatefulPartitionedCall/model_3/conv2d_1/BiasAdd/Dims559" type="Const" version="opset1">
+			<data offset="94752" size="64" shape="1,32,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="10" name="StatefulPartitionedCall/model_3/conv2d_1/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_1/BiasAdd:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="11" name="StatefulPartitionedCall/model_3/conv2d_1/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_1/Relu:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="12" name="StatefulPartitionedCall/model_3/conv2d_2/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="13" name="StatefulPartitionedCall/model_3/conv2d_2/BiasAdd/Dims553" type="Const" version="opset1">
+			<data offset="94816" size="64" shape="1,32,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="14" name="StatefulPartitionedCall/model_3/conv2d_2/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_2/BiasAdd:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="StatefulPartitionedCall/model_3/conv2d_2/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_2/Relu:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="16" name="Resize__30/axis4192367" type="Const" version="opset1">
+			<data offset="94880" size="16" shape="2" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="Resize__30/StridedSlice_scales4352388" type="Const" version="opset1">
+			<data offset="94896" size="8" shape="2" element_type="f32"/>
+			<output>
+				<port id="0" precision="FP32">
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="18" name="StatefulPartitionedCall/model_3/conv2d_4/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="94904" size="73728" shape="64,64,3,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_4/Conv2D/ReadVariableOp:0">
+					<dim>64</dim>
+					<dim>64</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="19" name="StatefulPartitionedCall/model_3/conv2d_3/Conv2D/ReadVariableOp:0" type="Const" version="opset1">
+			<data offset="168632" size="36864" shape="64,32,3,3" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_3/Conv2D/ReadVariableOp:0">
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="20" name="StatefulPartitionedCall/model_3/max_pooling2d_1/MaxPool" type="MaxPool" version="opset1">
+			<data strides="2,2" kernel="2,2" pads_begin="0,0" pads_end="0,0" rounding_type="floor" auto_pad="explicit"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/max_pooling2d_1/MaxPool:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="21" name="StatefulPartitionedCall/model_3/conv2d_3/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="22" name="StatefulPartitionedCall/model_3/conv2d_3/BiasAdd/Dims565" type="Const" version="opset1">
+			<data offset="205496" size="128" shape="1,64,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="23" name="StatefulPartitionedCall/model_3/conv2d_3/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_3/BiasAdd:0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="24" name="StatefulPartitionedCall/model_3/conv2d_3/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_3/Relu:0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="25" name="StatefulPartitionedCall/model_3/conv2d_4/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+				<port id="1">
+					<dim>64</dim>
+					<dim>64</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="26" name="StatefulPartitionedCall/model_3/conv2d_4/BiasAdd/Dims541" type="Const" version="opset1">
+			<data offset="205624" size="128" shape="1,64,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="27" name="StatefulPartitionedCall/model_3/conv2d_4/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_4/BiasAdd:0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="28" name="StatefulPartitionedCall/model_3/conv2d_4/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_4/Relu:0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="29" name="Resize__30/Add_input_port_1/value4232322" type="Const" version="opset1">
+			<data offset="205752" size="4" shape="1" element_type="f32"/>
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="30" name="Resize__30/ShapeOf" type="ShapeOf" version="opset3">
+			<data output_type="i64"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="I64">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="31" name="424" type="Convert" version="opset1">
+			<data destination_type="f32"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="32" name="scales__29" type="Const" version="opset1">
+			<data offset="205756" size="16" shape="4" element_type="f32"/>
+			<output>
+				<port id="0" precision="FP32" names="scales__29">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="33" name="Resize__30/Mul" type="Multiply" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+				<port id="1">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="34" name="Resize__30/Add" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="35" name="Resize__30/Floor" type="Floor" version="opset1">
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="36" name="428" type="Convert" version="opset1">
+			<data destination_type="i64"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="I64">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="37" name="Resize__30/StridedSlice_sizes_input_port_1/value4052337" type="Const" version="opset1">
+			<data offset="205772" size="8" shape="1" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="38" name="Resize__30/StridedSlice_sizes_input_port_2/value4072358" type="Const" version="opset1">
+			<data offset="205780" size="8" shape="1" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="39" name="Resize__30/StridedSlice_sizes_input_port_3/value4092331" type="Const" version="opset1">
+			<data offset="205788" size="8" shape="1" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="40" name="Resize__30/StridedSlice_sizes" type="StridedSlice" version="opset1">
+			<data begin_mask="0" end_mask="0" new_axis_mask="0" shrink_axis_mask="0" ellipsis_mask="0"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+				</port>
+				<port id="3">
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="4" precision="I64">
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="41" name="Resize__30" type="Interpolate" version="opset4">
+			<data mode="nearest" nearest_mode="floor" cube_coeff="-0.75" coordinate_transformation_mode="tf_half_pixel_for_nn" shape_calculation_mode="scales" antialias="false" pads_begin="0,0,0,0" pads_end="0,0,0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>50</dim>
+					<dim>50</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+				<port id="2">
+					<dim>2</dim>
+				</port>
+				<port id="3">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="4" precision="FP16" names="Resize__30:0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="42" name="StatefulPartitionedCall/model_3/concatenate_1/concat" type="Concat" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>64</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/concatenate_1/concat:0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="43" name="StatefulPartitionedCall/model_3/conv2d_5/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>96</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>96</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="44" name="StatefulPartitionedCall/model_3/conv2d_5/BiasAdd/Dims535" type="Const" version="opset1">
+			<data offset="205796" size="64" shape="1,32,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="45" name="StatefulPartitionedCall/model_3/conv2d_5/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_5/BiasAdd:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="46" name="StatefulPartitionedCall/model_3/conv2d_5/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_5/Relu:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="47" name="StatefulPartitionedCall/model_3/conv2d_6/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="1,1" pads_end="1,1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>32</dim>
+					<dim>32</dim>
+					<dim>3</dim>
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="48" name="StatefulPartitionedCall/model_3/conv2d_6/BiasAdd/Dims547" type="Const" version="opset1">
+			<data offset="205860" size="64" shape="1,32,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="49" name="StatefulPartitionedCall/model_3/conv2d_6/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_6/BiasAdd:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="50" name="StatefulPartitionedCall/model_3/conv2d_6/Relu" type="ReLU" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_6/Relu:0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="51" name="StatefulPartitionedCall/model_3/conv2d_7/BiasAdd/WithoutBiases" type="Convolution" version="opset1">
+			<data auto_pad="explicit" strides="1,1" dilations="1,1" pads_begin="0,0" pads_end="0,0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>32</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>13</dim>
+					<dim>32</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="52" name="StatefulPartitionedCall/model_3/conv2d_7/BiasAdd/Dims571" type="Const" version="opset1">
+			<data offset="205924" size="26" shape="1,13,1,1" element_type="f16"/>
+			<output>
+				<port id="0" precision="FP16">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="53" name="StatefulPartitionedCall/model_3/conv2d_7/BiasAdd" type="Add" version="opset1">
+			<data auto_broadcast="numpy"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/conv2d_7/BiasAdd:0">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="54" name="51" type="Const" version="opset1">
+			<data offset="205950" size="32" shape="4" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="55" name="Transpose__62" type="Transpose" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+				<port id="1">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="Transpose__62:0">
+					<dim>1</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+					<dim>13</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="56" name="const_fold_opt__71" type="Const" version="opset1">
+			<data offset="205982" size="4" shape="1" element_type="i32"/>
+			<output>
+				<port id="0" precision="I32" names="const_fold_opt__71">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="57" name="const_fold_opt__70" type="Const" version="opset1">
+			<data offset="205986" size="4" shape="1" element_type="i32"/>
+			<output>
+				<port id="0" precision="I32" names="const_fold_opt__70">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="58" name="Shape__66" type="ShapeOf" version="opset3">
+			<data output_type="i64"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>13</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="I64" names="Shape__66:0">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="59" name="Const__68" type="Const" version="opset1">
+			<data offset="205990" size="16" shape="4" element_type="i32"/>
+			<output>
+				<port id="0" precision="I32" names="Const__68">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="60" name="Gather__69/axis" type="Const" version="opset1">
+			<data offset="206006" size="8" shape="" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64"/>
+			</output>
+		</layer>
+		<layer id="61" name="Gather__6960" type="Gather" version="opset7">
+			<data batch_dims="0"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+				<port id="1">
+					<dim>4</dim>
+				</port>
+				<port id="2"/>
+			</input>
+			<output>
+				<port id="3" precision="I64" names="StatefulPartitionedCall/model_3/reshape_1/Shape:0">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="62" name="StatefulPartitionedCall/model_3/reshape_1/Shape__44" type="Convert" version="opset1">
+			<data destination_type="i32"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="I32" names="StatefulPartitionedCall/model_3/reshape_1/Shape__44:0">
+					<dim>4</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="63" name="StatefulPartitionedCall/model_3/reshape_1/strided_slice/Concat6352319" type="Const" version="opset1">
+			<data offset="206006" size="8" shape="1" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="64" name="StatefulPartitionedCall/model_3/reshape_1/strided_slice/Concat6256362349" type="Const" version="opset1">
+			<data offset="205788" size="8" shape="1" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="65" name="StatefulPartitionedCall/model_3/reshape_1/strided_slice/Strides6372394" type="Const" version="opset1">
+			<data offset="205788" size="8" shape="1" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="66" name="StatefulPartitionedCall/model_3/reshape_1/strided_slice" type="StridedSlice" version="opset1">
+			<data begin_mask="0" end_mask="0" new_axis_mask="0" shrink_axis_mask="0" ellipsis_mask="0"/>
+			<input>
+				<port id="0">
+					<dim>4</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+				</port>
+				<port id="3">
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="4" precision="I32" names="StatefulPartitionedCall/model_3/reshape_1/strided_slice:0">
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="67" name="StatefulPartitionedCall/model_3/reshape_1/Reshape/shape_Concat__56" type="Concat" version="opset1">
+			<data axis="0"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+				</port>
+				<port id="1">
+					<dim>1</dim>
+				</port>
+				<port id="2">
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="3" precision="I32" names="StatefulPartitionedCall/model_3/reshape_1/Reshape/shape_Concat__56:0">
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="68" name="StatefulPartitionedCall/model_3/reshape_1/Reshape__57" type="Convert" version="opset1">
+			<data destination_type="i64"/>
+			<input>
+				<port id="0">
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="I64" names="StatefulPartitionedCall/model_3/reshape_1/Reshape__57:0">
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="69" name="StatefulPartitionedCall/model_3/reshape_1/Reshape" type="Reshape" version="opset1">
+			<data special_zero="true"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>100</dim>
+					<dim>100</dim>
+					<dim>13</dim>
+				</port>
+				<port id="1">
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="StatefulPartitionedCall/model_3/reshape_1/Reshape:0">
+					<dim>1</dim>
+					<dim>10000</dim>
+					<dim>13</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="70" name="StatefulPartitionedCall/model_3/activation_1/Softmax/FlattenONNX_/Reshape/shape" type="Const" version="opset1">
+			<data offset="206014" size="16" shape="2" element_type="i64"/>
+			<output>
+				<port id="0" precision="I64">
+					<dim>2</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="71" name="StatefulPartitionedCall/model_3/activation_1/Softmax/FlattenONNX_/Reshape" type="Reshape" version="opset1">
+			<data special_zero="true"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10000</dim>
+					<dim>13</dim>
+				</port>
+				<port id="1">
+					<dim>2</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16">
+					<dim>1</dim>
+					<dim>130000</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="72" name="StatefulPartitionedCall/model_3/activation_1/Softmax/Softmax_" type="SoftMax" version="opset1">
+			<data axis="1"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>130000</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP16">
+					<dim>1</dim>
+					<dim>130000</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="73" name="StatefulPartitionedCall/model_3/activation_1/Softmax/ShapeOf_" type="ShapeOf" version="opset3">
+			<data output_type="i64"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10000</dim>
+					<dim>13</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="I64">
+					<dim>3</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="74" name="activation_1" type="Reshape" version="opset1">
+			<data special_zero="true"/>
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>130000</dim>
+				</port>
+				<port id="1">
+					<dim>3</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP16" names="activation_1">
+					<dim>1</dim>
+					<dim>10000</dim>
+					<dim>13</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="75" name="activation_1/sink_port_0" type="Result" version="opset1">
+			<input>
+				<port id="0">
+					<dim>1</dim>
+					<dim>10000</dim>
+					<dim>13</dim>
+				</port>
+			</input>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="5" from-port="0" to-layer="7" to-port="0"/>
+		<edge from-layer="6" from-port="0" to-layer="7" to-port="1"/>
+		<edge from-layer="7" from-port="2" to-layer="8" to-port="0"/>
+		<edge from-layer="4" from-port="0" to-layer="8" to-port="1"/>
+		<edge from-layer="8" from-port="2" to-layer="10" to-port="0"/>
+		<edge from-layer="9" from-port="0" to-layer="10" to-port="1"/>
+		<edge from-layer="10" from-port="2" to-layer="11" to-port="0"/>
+		<edge from-layer="11" from-port="1" to-layer="12" to-port="0"/>
+		<edge from-layer="3" from-port="0" to-layer="12" to-port="1"/>
+		<edge from-layer="12" from-port="2" to-layer="14" to-port="0"/>
+		<edge from-layer="13" from-port="0" to-layer="14" to-port="1"/>
+		<edge from-layer="14" from-port="2" to-layer="15" to-port="0"/>
+		<edge from-layer="15" from-port="1" to-layer="20" to-port="0"/>
+		<edge from-layer="20" from-port="1" to-layer="21" to-port="0"/>
+		<edge from-layer="19" from-port="0" to-layer="21" to-port="1"/>
+		<edge from-layer="21" from-port="2" to-layer="23" to-port="0"/>
+		<edge from-layer="22" from-port="0" to-layer="23" to-port="1"/>
+		<edge from-layer="23" from-port="2" to-layer="24" to-port="0"/>
+		<edge from-layer="24" from-port="1" to-layer="25" to-port="0"/>
+		<edge from-layer="18" from-port="0" to-layer="25" to-port="1"/>
+		<edge from-layer="25" from-port="2" to-layer="27" to-port="0"/>
+		<edge from-layer="26" from-port="0" to-layer="27" to-port="1"/>
+		<edge from-layer="27" from-port="2" to-layer="28" to-port="0"/>
+		<edge from-layer="28" from-port="1" to-layer="30" to-port="0"/>
+		<edge from-layer="30" from-port="1" to-layer="31" to-port="0"/>
+		<edge from-layer="31" from-port="1" to-layer="33" to-port="0"/>
+		<edge from-layer="32" from-port="0" to-layer="33" to-port="1"/>
+		<edge from-layer="33" from-port="2" to-layer="34" to-port="0"/>
+		<edge from-layer="29" from-port="0" to-layer="34" to-port="1"/>
+		<edge from-layer="34" from-port="2" to-layer="35" to-port="0"/>
+		<edge from-layer="35" from-port="1" to-layer="36" to-port="0"/>
+		<edge from-layer="36" from-port="1" to-layer="40" to-port="0"/>
+		<edge from-layer="37" from-port="0" to-layer="40" to-port="1"/>
+		<edge from-layer="38" from-port="0" to-layer="40" to-port="2"/>
+		<edge from-layer="39" from-port="0" to-layer="40" to-port="3"/>
+		<edge from-layer="28" from-port="1" to-layer="41" to-port="0"/>
+		<edge from-layer="40" from-port="4" to-layer="41" to-port="1"/>
+		<edge from-layer="17" from-port="0" to-layer="41" to-port="2"/>
+		<edge from-layer="16" from-port="0" to-layer="41" to-port="3"/>
+		<edge from-layer="41" from-port="4" to-layer="42" to-port="0"/>
+		<edge from-layer="15" from-port="1" to-layer="42" to-port="1"/>
+		<edge from-layer="42" from-port="2" to-layer="43" to-port="0"/>
+		<edge from-layer="2" from-port="0" to-layer="43" to-port="1"/>
+		<edge from-layer="43" from-port="2" to-layer="45" to-port="0"/>
+		<edge from-layer="44" from-port="0" to-layer="45" to-port="1"/>
+		<edge from-layer="45" from-port="2" to-layer="46" to-port="0"/>
+		<edge from-layer="46" from-port="1" to-layer="47" to-port="0"/>
+		<edge from-layer="1" from-port="0" to-layer="47" to-port="1"/>
+		<edge from-layer="47" from-port="2" to-layer="49" to-port="0"/>
+		<edge from-layer="48" from-port="0" to-layer="49" to-port="1"/>
+		<edge from-layer="49" from-port="2" to-layer="50" to-port="0"/>
+		<edge from-layer="50" from-port="1" to-layer="51" to-port="0"/>
+		<edge from-layer="0" from-port="0" to-layer="51" to-port="1"/>
+		<edge from-layer="51" from-port="2" to-layer="53" to-port="0"/>
+		<edge from-layer="52" from-port="0" to-layer="53" to-port="1"/>
+		<edge from-layer="53" from-port="2" to-layer="55" to-port="0"/>
+		<edge from-layer="54" from-port="0" to-layer="55" to-port="1"/>
+		<edge from-layer="53" from-port="2" to-layer="58" to-port="0"/>
+		<edge from-layer="58" from-port="1" to-layer="61" to-port="0"/>
+		<edge from-layer="59" from-port="0" to-layer="61" to-port="1"/>
+		<edge from-layer="60" from-port="0" to-layer="61" to-port="2"/>
+		<edge from-layer="61" from-port="3" to-layer="62" to-port="0"/>
+		<edge from-layer="62" from-port="1" to-layer="66" to-port="0"/>
+		<edge from-layer="63" from-port="0" to-layer="66" to-port="1"/>
+		<edge from-layer="64" from-port="0" to-layer="66" to-port="2"/>
+		<edge from-layer="65" from-port="0" to-layer="66" to-port="3"/>
+		<edge from-layer="66" from-port="4" to-layer="67" to-port="0"/>
+		<edge from-layer="57" from-port="0" to-layer="67" to-port="1"/>
+		<edge from-layer="56" from-port="0" to-layer="67" to-port="2"/>
+		<edge from-layer="67" from-port="3" to-layer="68" to-port="0"/>
+		<edge from-layer="55" from-port="2" to-layer="69" to-port="0"/>
+		<edge from-layer="68" from-port="1" to-layer="69" to-port="1"/>
+		<edge from-layer="69" from-port="2" to-layer="71" to-port="0"/>
+		<edge from-layer="70" from-port="0" to-layer="71" to-port="1"/>
+		<edge from-layer="71" from-port="2" to-layer="72" to-port="0"/>
+		<edge from-layer="69" from-port="2" to-layer="73" to-port="0"/>
+		<edge from-layer="72" from-port="1" to-layer="74" to-port="0"/>
+		<edge from-layer="73" from-port="1" to-layer="74" to-port="1"/>
+		<edge from-layer="74" from-port="2" to-layer="75" to-port="0"/>
+	</edges>
+	<meta_data>
+		<MO_version value="2021.4.2-3974-e2a469a3450-releases/2021/4"/>
+		<cli_parameters>
+			<batch value="1"/>
+			<caffe_parser_path value="DIR"/>
+			<data_type value="FP16"/>
+			<disable_nhwc_to_nchw value="False"/>
+			<disable_omitting_optional value="False"/>
+			<disable_resnet_optimization value="False"/>
+			<disable_weights_compression value="False"/>
+			<enable_concat_optimization value="False"/>
+			<enable_flattening_nested_params value="False"/>
+			<enable_ssd_gluoncv value="False"/>
+			<extensions value="DIR"/>
+			<framework value="onnx"/>
+			<freeze_placeholder_with_value value="{}"/>
+			<generate_deprecated_IR_V7 value="False"/>
+			<input value="input_1"/>
+			<input_model value="DIR/mnist_model.onnx"/>
+			<input_model_is_text value="False"/>
+			<k value="DIR/CustomLayersMapping.xml"/>
+			<keep_shape_ops value="True"/>
+			<legacy_ir_generation value="False"/>
+			<legacy_mxnet_model value="False"/>
+			<log_level value="ERROR"/>
+			<mean_scale_values value="{}"/>
+			<mean_values value="()"/>
+			<model_name value="mnist_model"/>
+			<output value="['activation_1']"/>
+			<output_dir value="DIR"/>
+			<placeholder_data_types value="{}"/>
+			<placeholder_shapes value="{'input_1': None}"/>
+			<progress value="False"/>
+			<remove_memory value="False"/>
+			<remove_output_softmax value="False"/>
+			<reverse_input_channels value="False"/>
+			<save_params_from_nd value="False"/>
+			<scale_values value="()"/>
+			<silent value="False"/>
+			<static_shape value="False"/>
+			<stream_output value="False"/>
+			<transform value=""/>
+			<unset unset_cli_parameters="counts, disable_fusing, disable_gfusing, finegrain_fusing, input_checkpoint, input_meta_graph, input_proto, input_shape, input_symbol, mean_file, mean_file_offsets, move_to_preprocess, nd_prefix_name, pretrained_model_name, saved_model_dir, saved_model_tags, scale, tensorboard_logdir, tensorflow_custom_layer_libraries, tensorflow_custom_operations_config_update, tensorflow_object_detection_api_pipeline_config, tensorflow_use_custom_operations_config, transformations_config"/>
+		</cli_parameters>
+	</meta_data>
+</net>
