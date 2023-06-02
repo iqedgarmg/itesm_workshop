@@ -9,6 +9,7 @@ Material de charla "Potenciando la Inteligencia Artificial con ROS y OpenVINO"
 
 * [Instalación de VirtualBox](https://adamtheautomator.com/install-virtualbox-on-windows-10/)
 * [Instalación de Ubuntu](https://www.geeksforgeeks.org/how-to-install-ubuntu-on-virtualbox/)
+* [ISO de Ubuntu](https://releases.ubuntu.com/focal/)
 
 ### Instalación de ROS
 
@@ -21,6 +22,9 @@ Instalar ROS Melodic de acuerdo a [tutorial oficial](http://wiki.ros.org/melodic
 
 Instalar ROS Noetic de acuerdo a [tutorial oficial](http://wiki.ros.org/noetic/Installation/Ubuntu): 
 
+c) Instalar catkin tools
+
+[Documentacion oficial](https://catkin-tools.readthedocs.io/en/latest/installing.html)
 
 ### Instalación de OpenVINO
 Instalar usando pip: 
