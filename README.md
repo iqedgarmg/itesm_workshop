@@ -1,2 +1,2 @@
 # itesm_workshop
-ITESM workshop material.
+Material de charla "Potenciando la Inteligencia Artificial con ROS y OpenVINO"
