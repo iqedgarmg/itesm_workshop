@@ -44,3 +44,7 @@ Instalar usando pip:
 * [Segmentación semántica](https://github.com/iqedgarmg/itesm_workshop/tree/main/ejemplos/semantica)
 * [Implementación de red neuronal con OpenVINO y ROS](https://github.com/iqedgarmg/itesm_workshop/tree/main/ejemplos/ros/repo_ws/src/ov_nodes)
 
+**Scripts completos:** 
+* [Ejemplos completos](https://drive.google.com/drive/folders/1coNg8cioZQsd_xUk9M7cTA_boXMuEDMJ?usp=sharing)
+
+
